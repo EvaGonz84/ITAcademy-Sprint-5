@@ -13,7 +13,7 @@ main {
   min-width: 300px;
   max-width: 800px;
   min-height: 220px;
-  margin: 15% auto 0% auto;
+  margin: 5% auto 0% auto;
   padding: 50px;
   border-radius: 80px 20px;
   font-family: sans-serif;
@@ -41,4 +41,7 @@ h1 {
 .start-button:hover {
   background-color: #0096ff;
   color: white;
+}
+.transparent {
+  color: rgba(0, 0, 0, 0);
 }
