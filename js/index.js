@@ -58,3 +58,16 @@ document.getElementById("score").addEventListener("click", (e) => {
     document.getElementById("newScore").classList.add("transparent");
   }
 });
+
+const weatherApi =
+  "https://api.openweathermap.org/data/2.5/weather?q=Barcelona&units=metric&appid=097b2f17ba3673c3cc107c3f0f3e001b";
+
+fetch(`${weatherApi}`)
+  .then((responsive) => responsive.json())
+  .then((data) => {
+    data.main.temp;
+    let actualTemperature = Math.round(data.main.temp);
+    console.log(
+      `La temperatura actual en Barcelona es de ${actualTemperature} grados`
+    );
+  });
