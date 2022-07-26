@@ -16,7 +16,16 @@ const getNewJoke = () => {
   document.getElementById("newScore").classList.remove("transparent");
 };
 
-document.getElementById("start-button").addEventListener("click", getNewJoke);
+let value = 2;
+document.getElementById("start-button").addEventListener("click", () => {
+  if (value % 2 === 0) {
+    getNewJoke();
+    value++;
+  } else {
+    getNewChuckNorrisJoke();
+    value--;
+  }
+});
 
 document.getElementById("score").addEventListener("click", (e) => {
   if (e.target.id === "scoreOne") {
@@ -71,3 +80,15 @@ fetch(`${weatherApi}`)
       `La temperatura actual en Barcelona es de ${actualTemperature} grados`
     );
   });
+
+const chuckNorrisApi = "https://api.chucknorris.io/jokes/random";
+const getNewChuckNorrisJoke = () => {
+  fetch(`${chuckNorrisApi}`)
+    .then((response) => response.json())
+    .then((data) => (newJoke.textContent = data.value));
+
+  document.getElementById("scoreOne").disabled = false;
+  document.getElementById("scoreTwo").disabled = false;
+  document.getElementById("scoreThree").disabled = false;
+  document.getElementById("newScore").classList.remove("transparent");
+};
