@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jokes API</title>
-</head>
-<body>
-<script src="./index.js"></script>    
-</body>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main id="main" class="container">
+      <h1 id="title" class="title">Ready for a new joke? 😂</h1>
+      <h2 id="newJoke" class="newJoke"></h2>
+      <h2 id="newScore" class="transparent">Did you like it?</h2>
+      <div id="score">
+        <button disabled id="scoreOne">😒</button>
+        <button disabled id="scoreTwo">😃</button>
+        <button disabled id="scoreThree">😆</button>
+      </div>
+      <button id="start-button" class="start-button">Next joke</button>
+    </main>
+    <script src="js/index.js"></script>
+    <script src="js/script.js"></script>
+  </body>
 </html>
