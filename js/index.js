@@ -1,5 +1,9 @@
 const apiUrl = "https://icanhazdadjoke.com/";
 const newJoke = document.getElementById("newJoke");
+const scoreOne = document.getElementById("scoreOne");
+const scoreTwo = document.getElementById("scoreTwo");
+const scoreThree = document.getElementById("scoreThree");
+const newScore = document.getElementById("newScore");
 const reportJokes = [];
 
 const getNewJoke = () => {
@@ -10,10 +14,10 @@ const getNewJoke = () => {
   })
     .then((response) => response.json())
     .then((data) => (newJoke.textContent = data.joke));
-  document.getElementById("scoreOne").disabled = false;
-  document.getElementById("scoreTwo").disabled = false;
-  document.getElementById("scoreThree").disabled = false;
-  document.getElementById("newScore").classList.remove("transparent");
+  scoreOne.disabled = false;
+  scoreTwo.disabled = false;
+  scoreThree.disabled = false;
+  newScore.classList.remove("transparent");
 };
 
 let value = 2;
@@ -29,57 +33,57 @@ document.getElementById("start-button").addEventListener("click", () => {
 
 document.getElementById("score").addEventListener("click", (e) => {
   if (e.target.id === "scoreOne") {
-    let joke = newJoke.textContent;
-    let score = 1;
-    let d = new Date();
-    let date = d.toISOString();
+    const joke = newJoke.textContent;
+    const score = 1;
+    const d = new Date();
+    const date = d.toISOString();
 
-    let newValuation = new valuationJokes(joke, score, date);
+    const newValuation = new valuationJokes(joke, score, date);
     reportJokes.push(newValuation);
     console.log(reportJokes);
-    document.getElementById("scoreOne").disabled = true;
-    document.getElementById("scoreTwo").disabled = true;
-    document.getElementById("scoreThree").disabled = true;
-    document.getElementById("newScore").classList.add("transparent");
+    scoreOne.disabled = true;
+    scoreTwo.disabled = true;
+    scoreThree.disabled = true;
+    newScore.classList.add("transparent");
   } else if (e.target.id === "scoreTwo") {
-    let joke = newJoke.textContent;
-    let score = 2;
-    let d = new Date();
-    let date = d.toISOString();
-    let newValuation = new valuationJokes(joke, score, date);
+    const joke = newJoke.textContent;
+    const score = 2;
+    const d = new Date();
+    const date = d.toISOString();
+    const newValuation = new valuationJokes(joke, score, date);
     reportJokes.push(newValuation);
     console.log(reportJokes);
-    document.getElementById("scoreOne").disabled = true;
-    document.getElementById("scoreTwo").disabled = true;
-    document.getElementById("scoreThree").disabled = true;
-    document.getElementById("newScore").classList.add("transparent");
+    scoreOne.disabled = true;
+    scoreTwo.disabled = true;
+    scoreThree.disabled = true;
+    newScore.classList.add("transparent");
   } else if (e.target.id === "scoreThree") {
-    let joke = newJoke.textContent;
-    let score = 3;
-    let d = new Date();
-    let date = d.toISOString();
-    let newValuation = new valuationJokes(joke, score, date);
+    const joke = newJoke.textContent;
+    const score = 3;
+    const d = new Date();
+    const date = d.toISOString();
+    const newValuation = new valuationJokes(joke, score, date);
     reportJokes.push(newValuation);
     console.log(reportJokes);
-    document.getElementById("scoreOne").disabled = true;
-    document.getElementById("scoreTwo").disabled = true;
-    document.getElementById("scoreThree").disabled = true;
-    document.getElementById("newScore").classList.add("transparent");
+    scoreOne.disabled = true;
+    scoreTwo.disabled = true;
+    scoreThree.disabled = true;
+    newScore.classList.add("transparent");
   }
 });
 
 const weatherApi =
   "https://api.openweathermap.org/data/2.5/weather?q=Barcelona&units=metric&appid=097b2f17ba3673c3cc107c3f0f3e001b";
 
-fetch(`${weatherApi}`)
-  .then((responsive) => responsive.json())
-  .then((data) => {
-    data.main.temp;
-    let actualTemperature = Math.round(data.main.temp);
-    console.log(
-      `La temperatura actual en Barcelona es de ${actualTemperature} grados`
-    );
-  });
+// fetch(`${weatherApi}`)
+//   .then((responsive) => responsive.json())
+//   .then((data) => {
+//     data.main.temp;
+//     let actualTemperature = Math.round(data.main.temp);
+//     console.log(
+//       `La temperatura actual en Barcelona es de ${actualTemperature} grados`
+//     );
+//   });
 
 const chuckNorrisApi = "https://api.chucknorris.io/jokes/random";
 const getNewChuckNorrisJoke = () => {
@@ -87,8 +91,8 @@ const getNewChuckNorrisJoke = () => {
     .then((response) => response.json())
     .then((data) => (newJoke.textContent = data.value));
 
-  document.getElementById("scoreOne").disabled = false;
-  document.getElementById("scoreTwo").disabled = false;
-  document.getElementById("scoreThree").disabled = false;
-  document.getElementById("newScore").classList.remove("transparent");
+  scoreOne.disabled = false;
+  scoreTwo.disabled = false;
+  scoreThree.disabled = false;
+  newScore.classList.remove("transparent");
 };
