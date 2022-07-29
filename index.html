@@ -8,16 +8,31 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
+    <header class="weather">
+      <img src="" alt="" id="animated-icon" />
+        <p id="actual-temp"</p>
+    </header>
     <main id="main" class="container">
-      <h1 id="title" class="title">Ready for a new joke? 😂</h1>
-      <h2 id="newJoke" class="newJoke"></h2>
-      <h2 id="newScore" class="transparent">Did you like it?</h2>
-      <div id="score">
-        <button disabled id="scoreOne">😒</button>
-        <button disabled id="scoreTwo">😃</button>
-        <button disabled id="scoreThree">😆</button>
+      <!-- <div class="weather"> -->
+        
+      <!-- </div> -->
+      <div class="blob1"></div>
+      <div class="blob2">
+        <div class="joke-text">
+          <h1 id="title" class="title">Ready for a new joke? 😂</h1>
+          <h2 id="newJoke" class="newJoke"></h2>
+          <h2 id="newScore" class="transparent newScore">Did you like it?</h2>
+          <div id="score">
+            <button disabled id="scoreOne" class="face">😒</button>
+            <button disabled id="scoreTwo" class="face">😃</button>
+            <button disabled id="scoreThree" class="face">😆</button>
+          </div>
+
+          <button id="start-button" class="start-button">Next joke</button>
+        </div>
       </div>
-      <button id="start-button" class="start-button">Next joke</button>
+
+      <div class="blob3"></div>
     </main>
     <script src="js/index.js"></script>
     <script src="js/script.js"></script>

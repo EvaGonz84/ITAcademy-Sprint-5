@@ -72,18 +72,34 @@ document.getElementById("score").addEventListener("click", (e) => {
   }
 });
 
+const animatedIcon = document.getElementById("animated-icon");
+const actualTemp = document.getElementById("actual-temp");
 const weatherApi =
-  "https://api.openweathermap.org/data/2.5/weather?q=Barcelona&units=metric&appid=097b2f17ba3673c3cc107c3f0f3e001b";
+  "https://api.openweathermap.org/data/2.5/weather?q=Barcelona&lang:es&units=metric&appid=097b2f17ba3673c3cc107c3f0f3e001b";
 
-// fetch(`${weatherApi}`)
-//   .then((responsive) => responsive.json())
-//   .then((data) => {
-//     data.main.temp;
-//     let actualTemperature = Math.round(data.main.temp);
-//     console.log(
-//       `La temperatura actual en Barcelona es de ${actualTemperature} grados`
-//     );
-//   });
+fetch(`${weatherApi}`)
+  .then((responsive) => responsive.json())
+  .then((data) => {
+    actualTemp.textContent = `|${Math.round(data.main.temp)}°C`;
+
+    switch (data.weather[0].main) {
+      case "Clear":
+        animatedIcon.src = "animated/day.svg";
+        break;
+      case "Clouds":
+        animatedIcon.src = "animated/cloudy-day-1.svg";
+        break;
+      case "Drizzle":
+        animatedIcon.src = "animated/rainy-4.svg";
+        break;
+      case "Rain":
+        animatedIcon.src = "animated/rainy-7.svg";
+        break;
+      case "Thunderstorm":
+        animatedIcon.src = "animated/thunder.svg";
+        break;
+    }
+  });
 
 const chuckNorrisApi = "https://api.chucknorris.io/jokes/random";
 const getNewChuckNorrisJoke = () => {
